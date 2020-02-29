@@ -6,15 +6,16 @@ echo "/******************************************* WELCOME TO USER REGISTRATION 
 firstName=""
 lastName=""
 
-# READING FIRST NAME FROM USER
-read -p "Enter Your First Name :" firstName
-read -p "Enter Your First Name :" lastName
+# DEFINING REGEX PATTERN
+nameRegexpattern="^[A-Z][a-z]{2,}$"
+emailRegexPattern="^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)?[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$"
 
-# FUNCTION TO VALIDATE FIRST NAME AND LAST NAME OF USER
-function validateName(){
-	local inputName=$1
-	local pattern="^[A-Z]{1}[a-z]{2,}$"
-	if [[ $inputName =~ $pattern ]]
+
+# FUNCTION TO VALIDATE INPUT PATTERN
+function validation(){
+	local inputPattern=$1
+	local regexPattern=$2
+	if [[ $inputPattern =~ $regexPattern ]]
 	then
 		echo "Valid"
 	else
@@ -22,5 +23,12 @@ function validateName(){
 	fi
 }
 
-validateName $firstName
-validateName $lastName
+# READING INPUT FROM USER
+read -p "Enter Your First Name :" firstName
+validation $firstName $nameRegexpattern
+
+read -p "Enter Your Last Name :" lastName
+validation $lastName $nameRegexPattern
+
+read -p "Enter Your emailId :" email
+validation $email $emailRegexPattern
