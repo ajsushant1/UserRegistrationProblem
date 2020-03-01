@@ -13,7 +13,7 @@ password=""
 nameRegexPattern="^[A-Z][a-zA-Z]{2,}$"
 emailRegexPattern="^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)?[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$"
 mobileRegexPattern="^[0-9]{2}[ ][0-9]{10}$"
-passwordRegexPattern="^[a-zA-Z]{8}$"
+passwordRegexPattern="^[a-zA-Z]*[A-Z]+[a-zA-Z]*{8,}$"
 
 # FUNCTION TO VALIDATE FIRST NAME AND LAST NAME OF USER
 function validateFirstLastName(){
